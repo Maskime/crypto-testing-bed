@@ -9,7 +9,6 @@ except ImportError:
 
 
 def on_message(ws, message):
-    print('message', datetim)
     json_message = json.loads(message,object_hook=TwentyFourHrTickerEvent.object_hook)
     # print(json_message)
     # print(json.dumps(json_message, sort_keys=False, indent=4))
