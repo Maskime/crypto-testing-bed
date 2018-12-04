@@ -14,8 +14,8 @@ services:
     - APP_MONGO_PASS=${APP_MONGO_PASS}
     - APP_MONGO_DB=${APP_MONGO_DB}
     volumes:
-    - "/home/maxoumask/dev/crypto_testing_bed/docker/volumes/mongo/data:/data/db"
-    - "/home/maxoumask/dev/crypto_testing_bed/docker/mongo/entrypoints/:/docker-entrypoint-initdb.d/"
+    - "/Users/MaxouMask/dev/crypto_testing_bed/docker/volumes/mongo/data:/data/db"
+    - "/Users/MaxouMask/dev/crypto_testing_bed/docker/mongo/entrypoints/:/docker-entrypoint-initdb.d/"
     ports:
     - "${MONGO_PORT}:27017"
 

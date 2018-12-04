@@ -4,4 +4,5 @@ venv
 __pycache__
 docker/.env
 docker/volumes/mongo/data
-!docker/volumes/mongo/data/.gitkeep
+!docker/volumes/mongo/data/.gitkeepout/
+out/

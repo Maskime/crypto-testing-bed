@@ -1,0 +1,17 @@
+{
+  "mongodb":{
+    "alias": "default",
+    "name": "crypto-test-bed",
+    "db": "crypto-test-bed",
+    "host": "localhost",
+    "port": 27017,
+    "username": "root",
+    "password": "prout",
+    "authentication_source": "admin",
+    "authentication_mechanism": "SCRAM-SHA-1"
+  },
+  "time_limit": {
+    "close": 86400,
+    "parallel": 85800
+  }
+}
