@@ -1,24 +1,40 @@
 #:import Exploration gui.widgets
 
 <Exploration>:
-    orientation: 'horizontal'
+    orientation: 'vertical'
     symbols_buttons: buttons
     symbols_graph: graph
+    market_filter: markets
 
-    ScrollView:
-        size_hint: (.2, 1)
-        do_scroll_x: False
-        GridLayout:
-            id: buttons
-            cols: 1
-            spacing: 2
-            size_hint_y: None
-            height: self.minimum_height
-
+    ActionBar:
+        pos_hint: {'top':1}
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: 'Filtering'
+                with_previous: False
+            ActionOverflow:
+            ActionGroup:
+                text: 'Markets'
+                id: markets
     BoxLayout:
-        orientation: 'vertical'
-        id: graph
-        size_hint: (.8, 1)
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (.2, 1)
+            ScrollView:
+                do_scroll_x: False
+                GridLayout:
+                    id: buttons
+                    cols: 1
+                    spacing: 2
+                    size_hint_y: None
+                    height: self.minimum_height
+
+        BoxLayout:
+            orientation: 'vertical'
+            id: graph
+            size_hint: (.8, 1)
 
 
 <CTBMain>:

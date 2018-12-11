@@ -20,3 +20,5 @@ binance = {
     'ticker_arr': '!ticker@arr',
     'enable_trace': True
 }
+
+markets = ['BTC', 'BNB', 'ETH', 'PAX', 'USDT', 'TUSD']

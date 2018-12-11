@@ -1,3 +1,4 @@
+import re
 from typing import Optional, Type, TypeVar, Dict
 
 # "e": "24hrTicker",  // Event type
@@ -114,5 +115,13 @@ class TwentyFourHrTickerEvent(Document):
         return str(self.__dict__)
 
     @staticmethod
-    def get_symbols():
-        return sorted(TwentyFourHrTickerEvent.objects.distinct('symbol'))
+    def get_symbols(market=None):
+        all_symbols = sorted(TwentyFourHrTickerEvent.objects.distinct('symbol'))
+        if market is not None:
+            all_symbols = [filtered for filtered in all_symbols if re.match('.*{}$'.format(market), filtered)]
+        return all_symbols
+
+    @staticmethod
+    def find_valuesforsymbol(symbol):
+        return [ticker.weighted_avg_price for ticker in
+                TwentyFourHrTickerEvent.objects(symbol=symbol).only('weighted_avg_price').order_by('event_time')]
