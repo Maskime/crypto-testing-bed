@@ -95,8 +95,10 @@ class TwentyFourHrTickerEvent(Document):
         out.open_price = float(remote_dict[out.fields_translation['open_price']])
         out.high_price = float(remote_dict[out.fields_translation['high_price']])
         out.low_price = float(remote_dict[out.fields_translation['low_price']])
-        out.total_traded_base_asset_volume = float(remote_dict[out.fields_translation['total_traded_base_asset_volume']])
-        out.total_traded_quote_asset_volume = float(remote_dict[out.fields_translation['total_traded_quote_asset_volume']])
+        out.total_traded_base_asset_volume = float(
+            remote_dict[out.fields_translation['total_traded_base_asset_volume']])
+        out.total_traded_quote_asset_volume = float(
+            remote_dict[out.fields_translation['total_traded_quote_asset_volume']])
         out.close_trade_quantity = float(remote_dict[out.fields_translation['close_trade_quantity']])
         # Ints
         out.event_time = int(remote_dict[out.fields_translation['event_time']])
@@ -110,3 +112,7 @@ class TwentyFourHrTickerEvent(Document):
 
     def __repr__(self):
         return str(self.__dict__)
+
+    @staticmethod
+    def get_symbols():
+        return sorted(TwentyFourHrTickerEvent.objects.distinct('symbol'))

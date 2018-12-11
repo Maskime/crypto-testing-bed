@@ -1,0 +1,45 @@
+#:import Exploration gui.widgets
+
+<Exploration>:
+    orientation: 'horizontal'
+    symbols_buttons: buttons
+    symbols_graph: graph
+
+    ScrollView:
+        size_hint: (.2, 1)
+        do_scroll_x: False
+        GridLayout:
+            id: buttons
+            cols: 1
+            spacing: 2
+            size_hint_y: None
+            height: self.minimum_height
+
+    BoxLayout:
+        orientation: 'vertical'
+        id: graph
+        size_hint: (.8, 1)
+        Button:
+            text: 'Prout2'
+
+
+<CTBMain>:
+    do_default_tab: False
+
+    TabbedPanelItem:
+        text: 'Exploration'
+        Exploration:
+            id: 'exploration_tab'
+    TabbedPanelItem:
+        text: 'tab2'
+        BoxLayout:
+            Label:
+                text: 'Second tab content area'
+            Button:
+                text: 'Button that does nothing'
+    TabbedPanelItem:
+        text: 'tab3'
+        RstDocument:
+            text:
+                '\\n'.join(("Hello world", "-----------",
+                "You are in the third tab."))
