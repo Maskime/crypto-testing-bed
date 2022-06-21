@@ -10,7 +10,7 @@ Kivy-Garden==0.1.4
 kiwisolver==1.0.1
 matplotlib==3.0.2
 mongoengine==0.15.3
-numpy==1.15.4
+numpy==1.22.0
 Pygments==2.3.0
 pymongo==3.7.1
 pyparsing==2.3.0
